@@ -1,0 +1,351 @@
+// _sass/_components.scss
+// ============================================================
+//  Buttons, Footer, CV, Certification + Misc Components
+// ============================================================
+
+// --- Buttons ---
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+  padding: 0.65rem 1.4rem;
+  border-radius: $radius-md;
+  font-family: $font-body;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all $transition-base;
+  text-decoration: none;
+  border: none;
+  white-space: nowrap;
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 3px;
+  }
+
+  // Primary
+  &--primary {
+    background: $color-accent;
+    color: white;
+    box-shadow: $shadow-sm;
+
+    &:hover {
+      opacity: 1;
+      background: darken($color-accent, 8%);
+      box-shadow: $shadow-accent;
+      transform: translateY(-1px);
+      color: white;
+    }
+  }
+
+  // Outline
+  &--outline {
+    background: transparent;
+    color: $color-ink;
+    border: 1px solid $color-border;
+
+    &:hover {
+      opacity: 1;
+      border-color: $color-ink;
+      box-shadow: $shadow-sm;
+      transform: translateY(-1px);
+    }
+  }
+
+  // Ghost
+  &--ghost {
+    background: transparent;
+    color: $color-ink-muted;
+    padding-inline: $space-md;
+
+    &:hover {
+      color: $color-ink;
+      opacity: 1;
+    }
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+}
+
+// --- CV Page ---
+.cv-page {
+  padding-top: $space-2xl;
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: $space-lg;
+    margin-bottom: $space-2xl;
+    padding-bottom: $space-xl;
+    border-bottom: 1px solid $color-border;
+  }
+}
+
+.cv-section {
+  margin-bottom: $space-2xl;
+
+  &__title {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $color-accent;
+    margin-bottom: $space-lg;
+    padding-bottom: $space-sm;
+    border-bottom: 1px solid $color-border;
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+
+    &::before {
+      content: '';
+      width: 1.5rem;
+      height: 1px;
+      background: $color-accent;
+    }
+  }
+}
+
+.cv-entry {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: $space-lg;
+  margin-bottom: $space-xl;
+  padding-bottom: $space-xl;
+  border-bottom: 1px solid $color-surface-2;
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: $space-sm;
+  }
+
+  &__date {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: $color-ink-muted;
+    padding-top: 0.2rem;
+    line-height: 1.5;
+  }
+
+  &__content {}
+
+  &__role {
+    font-family: $font-display;
+    font-size: 1.1rem;
+    color: $color-ink;
+    margin-bottom: $space-xs;
+  }
+
+  &__org {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $color-accent;
+    margin-bottom: $space-sm;
+    max-width: none;
+  }
+
+  &__desc {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    margin-bottom: $space-sm;
+  }
+
+  &__bullets {
+    font-size: 0.875rem;
+    color: $color-ink-muted;
+    line-height: 1.7;
+    padding-left: $space-lg;
+
+    li { margin-bottom: $space-xs; }
+  }
+}
+
+// --- Certification Gallery ---
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: $space-lg;
+}
+
+.cert-card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $space-lg;
+  transition: all $transition-base;
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $color-accent, $color-accent-2);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform $transition-base;
+  }
+
+  &:hover {
+    border-color: rgba($color-accent, 0.3);
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+
+    &::before { transform: scaleX(1); }
+  }
+
+  &__issuer-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: $radius-sm;
+  }
+
+  &__issuer-badge {
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-sm;
+    background: $color-surface-2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-mono;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: $color-ink-muted;
+    letter-spacing: 0.05em;
+  }
+
+  &__name {
+    font-family: $font-display;
+    font-size: 1.05rem;
+    color: $color-ink;
+    line-height: 1.3;
+  }
+
+  &__issuer {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: $color-accent;
+    max-width: none;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: $space-sm;
+    margin-top: auto;
+    padding-top: $space-sm;
+    border-top: 1px solid $color-border;
+  }
+
+  &__date {
+    font-family: $font-mono;
+    font-size: 0.68rem;
+    color: $color-ink-muted;
+  }
+
+  &__verify {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: $color-accent-2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+
+    &::after {
+      content: '↗';
+      font-size: 0.7rem;
+    }
+
+    &:hover { opacity: 0.75; }
+  }
+}
+
+// --- Footer ---
+.site-footer {
+  border-top: 1px solid $color-border;
+  padding-block: $space-xl;
+  margin-top: $space-3xl;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: $space-md;
+  }
+
+  &__copy {
+    font-family: $font-mono;
+    font-size: 0.72rem;
+    color: $color-ink-muted;
+    max-width: none;
+  }
+
+  &__links {
+    display: flex;
+    gap: $space-lg;
+    list-style: none;
+    padding: 0;
+  }
+
+  &__link {
+    font-size: 0.8rem;
+    color: $color-ink-muted;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-ink;
+      opacity: 1;
+    }
+  }
+}
+
+// --- Page Header (inner pages) ---
+.page-header {
+  padding-top: $space-2xl;
+  padding-bottom: $space-xl;
+  border-bottom: 1px solid $color-border;
+  margin-bottom: $space-2xl;
+}
+
+// --- Back Link ---
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: $color-ink-muted;
+  margin-bottom: $space-lg;
+  transition: color $transition-fast, gap $transition-fast;
+
+  &::before { content: '←'; }
+
+  &:hover {
+    color: $color-ink;
+    opacity: 1;
+    gap: 0.55rem;
+  }
+}

@@ -1,0 +1,32 @@
+# _data/certifications.yml
+# ============================================================
+#
+#  Fields:
+#    name          : Full certificate name
+#    issuer        : Issuing organization
+#    date          : Display date (e.g. "Jan 2024")
+#    category      : Groups certs under a heading (e.g. "Business Intelligence")
+#    credential_url: Link to online verification (optional)
+#    logo          : Path to issuer logo in /assets/images/ (optional)
+# ============================================================
+
+- name: "Data Science & AI Bootcamp"
+  issuer: "Startup Campus Indonesia"
+  date: "Jun 2024"
+  category: "Data Science & AI"
+  credential_url: "https://edu.startupcampus.id/certificates/79701eba-06ab-4320-a409-28f63184e6f3"
+
+- name: "TOEIC Institutional"
+  issuer: "ITC Indonesia"
+  date: "Oct 2024"
+  category: "English Proficiency"
+
+- name: "TOEFL ITP"
+  issuer: "ELTI Gramedia Yogyakarta"
+  date: "Jul 2025"
+  category: "English Proficiency"
+
+- name: "IELTS Academic"
+  issuer: "IDP Indonesia"
+  date: "Feb 2026"
+  category: "English Proficiency"

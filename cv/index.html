@@ -1,0 +1,153 @@
+---
+layout: default
+title: "CV"
+description: "Professional CV and résumé of Your Name — Data Analyst specializing in Power BI, SQL, and data modeling."
+permalink: /cv/
+---
+
+<section class="section cv-page">
+  <div class="container container--narrow">
+
+    <!-- CV Header -->
+    <div class="cv-page__header">
+      <div>
+        <p class="section__label" aria-hidden="true">Résumé</p>
+        <h1>Your Name</h1>
+        <p style="font-size: 1.05rem; color: #6B6560; margin-top: 0.5rem;">
+          Data Analyst · Jakarta, Indonesia
+        </p>
+        <p style="font-size: 0.875rem; color: #6B6560; margin-top: 0.25rem; max-width: none;">
+          <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+          &nbsp;·&nbsp;
+          <a href="{{ site.social.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+          &nbsp;·&nbsp;
+          <a href="{{ site.social.github }}" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </div>
+
+      <a href="{{ '/assets/pdf/your-name-cv.pdf' | relative_url }}"
+         class="btn btn--primary"
+         download
+         aria-label="Download CV as PDF">
+        <!-- Download icon -->
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download PDF
+      </a>
+    </div>
+
+    <!-- ── Professional Summary ──────────────────────────────── -->
+    <section class="cv-section" aria-labelledby="summary-heading">
+      <h2 class="cv-section__title" id="summary-heading">Summary</h2>
+      <p>
+        Data Analyst with [X]+ years of experience translating business requirements
+        into scalable data solutions. Proficient in SQL query optimization, dimensional
+        data modeling, and building self-service Power BI dashboards consumed by
+        C-level executives and operational teams alike. Adept at end-to-end BI
+        delivery — from raw source extraction and ETL pipeline design to insight
+        presentation and stakeholder enablement.
+      </p>
+    </section>
+
+    <!-- ── Experience ───────────────────────────────────────── -->
+    <section class="cv-section" aria-labelledby="experience-heading">
+      <h2 class="cv-section__title" id="experience-heading">Experience</h2>
+
+      <!-- Entry 1 -->
+      <div class="cv-entry">
+        <div class="cv-entry__date">Jan 2023 – Present</div>
+        <div class="cv-entry__content">
+          <h3 class="cv-entry__role">Senior Data Analyst</h3>
+          <p class="cv-entry__org">Company Name · Jakarta, Indonesia</p>
+          <ul class="cv-entry__bullets">
+            <li>Designed and maintained a star-schema data model in BigQuery serving 12 Power BI reports used by 200+ stakeholders.</li>
+            <li>Reduced monthly reporting cycle from 5 days to same-day delivery by automating ETL pipelines using dbt and Cloud Scheduler.</li>
+            <li>Led a cross-functional team to define KPIs for a new product line, delivering an executive dashboard adopted as the single source of truth.</li>
+            <li>Mentored 2 junior analysts and established SQL coding standards adopted team-wide.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Entry 2 -->
+      <div class="cv-entry">
+        <div class="cv-entry__date">Jun 2021 – Dec 2022</div>
+        <div class="cv-entry__content">
+          <h3 class="cv-entry__role">Data Analyst</h3>
+          <p class="cv-entry__org">Previous Company · Jakarta, Indonesia</p>
+          <ul class="cv-entry__bullets">
+            <li>Built and maintained Power BI dashboards tracking sales, inventory, and customer retention metrics for a retail client portfolio.</li>
+            <li>Wrote complex SQL queries (CTEs, window functions, subqueries) to support ad-hoc analysis requests from finance and operations teams.</li>
+            <li>Partnered with the engineering team to document data pipelines and improve data quality through automated validation scripts.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Entry 3 -->
+      <div class="cv-entry">
+        <div class="cv-entry__date">Jul 2020 – May 2021</div>
+        <div class="cv-entry__content">
+          <h3 class="cv-entry__role">Business Intelligence Intern</h3>
+          <p class="cv-entry__org">Internship Company · Remote</p>
+          <ul class="cv-entry__bullets">
+            <li>Assisted in migrating legacy Excel-based reports to Power BI, reducing manual effort by 40%.</li>
+            <li>Created ad-hoc SQL reports and exploratory data analyses for the marketing team.</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── Education ─────────────────────────────────────────── -->
+    <section class="cv-section" aria-labelledby="education-heading">
+      <h2 class="cv-section__title" id="education-heading">Education</h2>
+
+      <div class="cv-entry">
+        <div class="cv-entry__date">2016 – 2020</div>
+        <div class="cv-entry__content">
+          <h3 class="cv-entry__role">Bachelor of [Your Degree]</h3>
+          <p class="cv-entry__org">University Name · City, Indonesia</p>
+          <p class="cv-entry__desc">Relevant coursework: Statistics, Database Systems, Linear Algebra, Information Systems.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── Skills ────────────────────────────────────────────── -->
+    <section class="cv-section" aria-labelledby="skills-heading">
+      <h2 class="cv-section__title" id="skills-heading">Skills</h2>
+
+      <div class="cv-entry">
+        <div class="cv-entry__date">Analytics</div>
+        <div class="cv-entry__content">
+          <p class="cv-entry__desc">SQL (PostgreSQL, BigQuery, SQL Server), Python (pandas, numpy, matplotlib), Excel (Power Query, pivot tables)</p>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry__date">Visualization</div>
+        <div class="cv-entry__content">
+          <p class="cv-entry__desc">Power BI, DAX, Tableau, Looker Studio, Matplotlib / Seaborn</p>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry__date">Data Eng.</div>
+        <div class="cv-entry__content">
+          <p class="cv-entry__desc">dbt, Apache Airflow, Google Cloud Platform (BigQuery, Cloud Storage, Dataflow), Git, Docker</p>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry__date">Soft Skills</div>
+        <div class="cv-entry__content">
+          <p class="cv-entry__desc">Stakeholder communication, requirements gathering, data storytelling, agile project management</p>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+</section>

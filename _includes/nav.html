@@ -1,0 +1,39 @@
+<!-- _includes/nav.html -->
+<header class="site-nav" role="banner">
+  <div class="container">
+    <nav class="site-nav__inner" aria-label="Main navigation">
+      <a
+        href="{{ '/' | relative_url }}"
+        class="site-nav__logo"
+        aria-label="{{ site.author }} — Home"
+      >
+        {{ site.author | split: " " | last }}<span>.</span>
+      </a>
+
+      <ul class="site-nav__links" role="list">
+        {% for link in site.nav_links %}
+        <li>
+          <a
+            href="{{ link.url | relative_url }}"
+            class="site-nav__link"
+            {%
+            if
+            page.url
+            contains
+            link.url
+            and
+            link.url
+            !="/"
+            %}aria-current="page"
+            {%
+            endif
+            %}
+          >
+            {{ link.title }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

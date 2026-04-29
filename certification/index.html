@@ -1,0 +1,172 @@
+---
+layout: default
+title: "Certifications"
+description: "Professional data certifications and credentials earned by Your Name."
+permalink: /certification/
+---
+
+<section class="section">
+  <div class="container">
+    <header class="page-header">
+      <p class="section__label" aria-hidden="true">Credentials</p>
+      <h1>Certifications</h1>
+      <p style="font-size: 1.05rem; color: #6b6560; margin-top: 0.75rem">
+        Professional certifications and courses completed.
+      </p>
+    </header>
+
+    <!-- ── Certifications Grid ────────────────────────────────── -->
+    {% assign certs = site.data.certifications %} {% if certs and certs.size > 0
+    %}
+
+    <!-- Group by category -->
+    {% assign categories = certs | map: "category" | uniq %} {% for category in
+    categories %}
+    <div style="margin-bottom: 3rem">
+      <h2
+        style="
+          font-family: &quot;JetBrains Mono&quot;, monospace;
+          font-size: 0.72rem;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          color: #6b6560;
+          margin-bottom: 1.5rem;
+          padding-bottom: 0.75rem;
+          border-bottom: 1px solid #ddd9d3;
+        "
+      >
+        {{ category }}
+      </h2>
+
+      <div class="cert-grid">
+        {% for cert in certs %} {% if cert.category == category %}
+        <article class="cert-card fade-in">
+          <!-- Issuer Badge -->
+          {% if cert.logo %}
+          <img
+            src="{{ cert.logo | relative_url }}"
+            alt="{{ cert.issuer }} logo"
+            class="cert-card__issuer-logo"
+            loading="lazy"
+          />
+          {% else %}
+          <div class="cert-card__issuer-badge" aria-hidden="true">
+            {{ cert.issuer | truncate: 3, "" | upcase }}
+          </div>
+          {% endif %}
+
+          <h3 class="cert-card__name">{{ cert.name }}</h3>
+          <p class="cert-card__issuer">{{ cert.issuer }}</p>
+
+          <div class="cert-card__meta">
+            <span class="cert-card__date">{{ cert.date }}</span>
+            {% if cert.credential_url %}
+            <a
+              href="{{ cert.credential_url }}"
+              class="cert-card__verify"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Verify {{ cert.name }} credential (opens in new tab)"
+            >
+              Verify
+            </a>
+            {% endif %}
+          </div>
+        </article>
+        {% endif %} {% endfor %}
+      </div>
+    </div>
+    {% endfor %} {% else %}
+
+    <!-- Fallback: hardcoded placeholder certs -->
+    <div class="cert-grid">
+      <article class="cert-card fade-in">
+        <div class="cert-card__issuer-badge" aria-hidden="true">MS</div>
+        <h3 class="cert-card__name">
+          Microsoft Certified: Power BI Data Analyst Associate (PL-300)
+        </h3>
+        <p class="cert-card__issuer">Microsoft</p>
+        <div class="cert-card__meta">
+          <span class="cert-card__date">Jan 2024</span>
+          <a
+            href="#"
+            class="cert-card__verify"
+            aria-label="Verify Power BI certification"
+            >Verify</a
+          >
+        </div>
+      </article>
+
+      <article class="cert-card fade-in">
+        <div class="cert-card__issuer-badge" aria-hidden="true">GCP</div>
+        <h3 class="cert-card__name">Professional Data Engineer</h3>
+        <p class="cert-card__issuer">Google Cloud</p>
+        <div class="cert-card__meta">
+          <span class="cert-card__date">Aug 2023</span>
+          <a
+            href="#"
+            class="cert-card__verify"
+            aria-label="Verify Google Cloud certification"
+            >Verify</a
+          >
+        </div>
+      </article>
+
+      <article class="cert-card fade-in">
+        <div class="cert-card__issuer-badge" aria-hidden="true">dbt</div>
+        <h3 class="cert-card__name">dbt Analytics Engineering</h3>
+        <p class="cert-card__issuer">dbt Labs</p>
+        <div class="cert-card__meta">
+          <span class="cert-card__date">Mar 2023</span>
+          <a
+            href="#"
+            class="cert-card__verify"
+            aria-label="Verify dbt certification"
+            >Verify</a
+          >
+        </div>
+      </article>
+
+      <article class="cert-card fade-in">
+        <div class="cert-card__issuer-badge" aria-hidden="true">DC</div>
+        <h3 class="cert-card__name">Data Analyst with Python</h3>
+        <p class="cert-card__issuer">DataCamp</p>
+        <div class="cert-card__meta">
+          <span class="cert-card__date">Nov 2022</span>
+          <a
+            href="#"
+            class="cert-card__verify"
+            aria-label="Verify DataCamp certification"
+            >Verify</a
+          >
+        </div>
+      </article>
+
+      <article class="cert-card fade-in">
+        <div class="cert-card__issuer-badge" aria-hidden="true">SQL</div>
+        <h3 class="cert-card__name">Advanced SQL for Data Scientists</h3>
+        <p class="cert-card__issuer">Mode Analytics</p>
+        <div class="cert-card__meta">
+          <span class="cert-card__date">Jul 2022</span>
+        </div>
+      </article>
+
+      <article class="cert-card fade-in">
+        <div class="cert-card__issuer-badge" aria-hidden="true">Crs</div>
+        <h3 class="cert-card__name">IBM Data Science Professional</h3>
+        <p class="cert-card__issuer">Coursera / IBM</p>
+        <div class="cert-card__meta">
+          <span class="cert-card__date">Feb 2022</span>
+          <a
+            href="#"
+            class="cert-card__verify"
+            aria-label="Verify IBM certification"
+            >Verify</a
+          >
+        </div>
+      </article>
+    </div>
+
+    {% endif %}
+  </div>
+</section>

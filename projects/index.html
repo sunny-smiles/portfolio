@@ -1,0 +1,211 @@
+---
+layout: default
+title: "Projects"
+description: "Data analysis case studies, Power BI dashboards, and SQL projects by Your Name."
+permalink: /projects/
+---
+
+<section class="section">
+  <div class="container">
+    <!-- Page Header -->
+    <header class="page-header">
+      <p class="section__label" aria-hidden="true">Portfolio</p>
+      <h1>Projects</h1>
+      <p style="font-size: 1.05rem; color: #6b6560; margin-top: 0.75rem">
+        A collection of data analysis case studies, dashboards, and
+        explorations.
+      </p>
+    </header>
+
+    <!-- ── Filter Bar ─────────────────────────────────────────── -->
+    <div class="filter-bar" role="search" aria-label="Filter projects">
+      <div class="filter-bar__search">
+        <label for="project-search" class="sr-only">Search projects</label>
+        <input
+          type="search"
+          id="project-search"
+          name="search"
+          placeholder="Search projects…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+
+      <ul class="filter-bar__tags" role="list" aria-label="Filter by tag">
+        <li>
+          <button
+            class="tag-btn active"
+            data-tag="all"
+            aria-pressed="true"
+            type="button"
+          >
+            All
+          </button>
+        </li>
+        <li>
+          <button
+            class="tag-btn"
+            data-tag="Time Series"
+            aria-pressed="false"
+            type="button"
+          >
+            Time Series
+          </button>
+        </li>
+        <li>
+          <button
+            class="tag-btn"
+            data-tag="Power BI"
+            aria-pressed="false"
+            type="button"
+          >
+            Power BI
+          </button>
+        </li>
+        <li>
+          <button
+            class="tag-btn"
+            data-tag="Python"
+            aria-pressed="false"
+            type="button"
+          >
+            Python
+          </button>
+        </li>
+        <li>
+          <button
+            class="tag-btn"
+            data-tag="Streamlit"
+            aria-pressed="false"
+            type="button"
+          >
+            Streamlit
+          </button>
+        </li>
+        <li>
+          <button
+            class="tag-btn"
+            data-tag="Looker Studio"
+            aria-pressed="false"
+            type="button"
+          >
+            Looker Studio
+          </button>
+        </li>
+        <li>
+          <button
+            class="tag-btn"
+            data-tag="Machine Learning"
+            aria-pressed="false"
+            type="button"
+          >
+            Machine Learning
+          </button>
+        </li>
+        <li>
+          <button
+            class="tag-btn"
+            data-tag="Internship"
+            aria-pressed="false"
+            type="button"
+          >
+            Internship
+          </button>
+        </li>
+      </ul>
+    </div>
+    <!-- /Filter Bar -->
+
+    <!-- ── Projects Grid ──────────────────────────────────────── -->
+    <div
+      id="projects-grid"
+      class="projects-grid"
+      role="list"
+      aria-label="Projects list"
+    >
+      {% assign sorted_projects = site.projects | sort: "date" | reverse %} {%
+      if sorted_projects.size > 0 %} {% for project in sorted_projects %} {%
+      comment %} Build a comma-separated tag string for JS filtering {%
+      endcomment %} {% assign tags_string = project.tags | join: "," %} {%
+      comment %} Build a search-text string (title + excerpt + tags) {%
+      endcomment %} {% assign search_text = project.title | append: " " |
+      append: project.excerpt | append: " " | append: tags_string | downcase %}
+
+      <article
+        class="project-card fade-in"
+        role="listitem"
+        data-tags="{{ tags_string }}"
+        data-search="{{ search_text | strip_html | strip_newlines }}"
+      >
+        <!-- Thumbnail -->
+        <div
+          class="project-card__thumb {% unless project.thumbnail %}project-card__thumb--placeholder{% endunless %}"
+          aria-hidden="true"
+        >
+          {% if project.thumbnail %}
+          <img
+            src="{{ project.thumbnail | relative_url }}"
+            alt="{{ project.title }} thumbnail"
+            loading="lazy"
+          />
+          {% else %}
+          <span>{{ project.tags | first | upcase }}</span>
+          {% endif %}
+        </div>
+
+        <div class="project-card__body">
+          <!-- Tags -->
+          {% if project.tags %}
+          <ul class="project-card__tags" aria-label="Tags">
+            {% for tag in project.tags %}
+            <li class="project-card__tag">{{ tag }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+
+          <!-- Title -->
+          <h2 class="project-card__title">{{ project.title }}</h2>
+
+          <!-- Excerpt -->
+          <p class="project-card__excerpt">
+            {{ project.excerpt | strip_html | truncate: 120 }}
+          </p>
+
+          <!-- Footer: date + link -->
+          <div class="project-card__footer">
+            {% if project.date %}
+            <span class="project-card__date"
+              >{{ project.date | date: "%b %Y" }}</span
+            >
+            {% endif %}
+            <a
+              href="{{ project.url | relative_url }}"
+              class="project-card__link"
+              aria-label="Read more about {{ project.title }}"
+            >
+              Read more
+            </a>
+          </div>
+        </div>
+      </article>
+
+      {% endfor %} {% else %}
+      <!-- Shown when no _projects files exist yet -->
+      <div class="projects-empty" id="projects-empty-default">
+        <div class="projects-empty__icon" aria-hidden="true">📂</div>
+        <p>
+          No projects yet — add Markdown files to the
+          <code>_projects/</code> folder to get started.
+        </p>
+      </div>
+      {% endif %}
+    </div>
+    <!-- /#projects-grid -->
+
+    <!-- Empty state (shown by JS when filters return 0 results) -->
+    <div id="projects-empty" class="projects-empty" role="status" hidden>
+      <div class="projects-empty__icon" aria-hidden="true">🔍</div>
+      <p>No projects match your search. Try a different keyword or tag.</p>
+    </div>
+  </div>
+</section>

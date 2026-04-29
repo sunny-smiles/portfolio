@@ -1,0 +1,325 @@
+// _sass/_hero.scss
+// ============================================================
+//  Hero Section + Homepage Components
+// ============================================================
+
+// --- Hero ---
+.hero {
+  padding-top: $space-3xl;
+  padding-bottom: $space-2xl;
+  position: relative;
+  overflow: hidden;
+
+  // Decorative grain texture overlay
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: $space-2xl;
+    align-items: end;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__label {
+    font-family: $font-mono;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $color-accent;
+    margin-bottom: $space-md;
+    opacity: 0;
+    animation: fadeUp 0.6s $transition-base forwards;
+    animation-delay: 0.1s;
+  }
+
+  &__name {
+    margin-bottom: $space-md;
+    opacity: 0;
+    animation: fadeUp 0.6s $transition-base forwards;
+    animation-delay: 0.2s;
+
+    em {
+      font-style: normal;
+      color: $color-accent;
+    }
+  }
+
+  &__bio {
+    font-size: 1.05rem;
+    color: $color-ink-muted;
+    max-width: 52ch;
+    margin-bottom: $space-xl;
+    opacity: 0;
+    animation: fadeUp 0.6s $transition-base forwards;
+    animation-delay: 0.35s;
+  }
+
+  &__social {
+    display: flex;
+    gap: $space-md;
+    margin-bottom: $space-2xl;
+    opacity: 0;
+    animation: fadeUp 0.6s $transition-base forwards;
+    animation-delay: 0.45s;
+  }
+
+  &__social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-sm;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $color-ink-muted;
+    border: 1px solid $color-border;
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+    transition: all $transition-base;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    &:hover {
+      color: $color-ink;
+      border-color: $color-ink;
+      opacity: 1;
+      transform: translateY(-1px);
+      box-shadow: $shadow-sm;
+    }
+  }
+
+  &__avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid $color-border;
+    box-shadow: $shadow-md;
+    opacity: 0;
+    animation: fadeIn 0.8s $transition-base forwards;
+    animation-delay: 0.5s;
+
+    @media (max-width: 768px) {
+      width: 100px;
+      height: 100px;
+      grid-row: 1;
+    }
+  }
+}
+
+// --- CTA Navigation Buttons ---
+.hero-nav {
+  opacity: 0;
+  animation: fadeUp 0.6s $transition-base forwards;
+  animation-delay: 0.55s;
+
+  &__label {
+    font-family: $font-mono;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $color-ink-muted;
+    margin-bottom: $space-md;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-md;
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.nav-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: $space-lg;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-surface;
+  color: $color-ink;
+  text-decoration: none;
+  transition: all $transition-base;
+  position: relative;
+  overflow: hidden;
+  min-height: 120px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: $color-accent;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform $transition-base;
+  }
+
+  &:hover {
+    opacity: 1;
+    border-color: $color-accent;
+    box-shadow: $shadow-accent;
+    transform: translateY(-3px);
+
+    &::before { transform: scaleX(1); }
+
+    .nav-card__arrow { transform: translate(3px, -3px); }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 3px;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: $color-ink;
+  }
+
+  &__desc {
+    font-size: 0.8rem;
+    color: $color-ink-muted;
+    margin-top: $space-sm;
+    max-width: none;
+    line-height: 1.5;
+  }
+
+  &__arrow {
+    font-size: 1.1rem;
+    color: $color-accent;
+    align-self: flex-end;
+    transition: transform $transition-base;
+  }
+}
+
+// --- About Section ---
+.about {
+  border-top: 1px solid $color-border;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-3xl;
+    align-items: start;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: $space-xl;
+    }
+  }
+
+  &__text p {
+    margin-bottom: $space-md;
+    line-height: 1.8;
+    max-width: 62ch;
+  }
+
+  &__skills {
+    h3 {
+      font-size: 1rem;
+      margin-bottom: $space-md;
+      font-family: $font-mono;
+      font-weight: 500;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: $color-ink-muted;
+    }
+  }
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+  list-style: none;
+  padding: 0;
+  margin-bottom: $space-xl;
+
+  li {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.7rem;
+    border: 1px solid $color-border;
+    border-radius: 100px;
+    color: $color-ink-muted;
+    background: $color-surface;
+    transition: all $transition-fast;
+
+    &:hover {
+      border-color: $color-accent;
+      color: $color-accent;
+    }
+  }
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-md;
+  margin-top: $space-lg;
+
+  @media (max-width: 400px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-card {
+  padding: $space-md;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-surface;
+
+  &__number {
+    font-family: $font-display;
+    font-size: 2rem;
+    color: $color-accent;
+    line-height: 1;
+    margin-bottom: $space-xs;
+  }
+
+  &__label {
+    font-size: 0.78rem;
+    color: $color-ink-muted;
+    max-width: none;
+    line-height: 1.4;
+  }
+}
+
+// --- Animations ---
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

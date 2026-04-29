@@ -1,28 +1,217 @@
 ---
 layout: default
-title: Portfolio - Fikri Majid
+title: "Data Analyst Portfolio"
+description: "Data Analyst specializing in data modeling, Power BI dashboards, SQL, and business intelligence."
 ---
-<h1>Portfolio</h1>
-<div class="portfolio">
-    <div class="item">
-        <a href="{{ '/projects/heart-disease' | relative_url }}">
-            <img src="{{ '/images/DataViz-HeartDisease.png' | relative_url }}" alt="HeartDiseaseAnalysis">
-            <h2>Heart Disease Analysis & Dashboard</h2>
-            <p>April 21, 2024</p>
-        </a>
+
+<!-- ============================================================
+  HERO SECTION
+============================================================ -->
+<section class="hero section" aria-labelledby="hero-name">
+  <div class="container">
+    <div class="hero__inner">
+      <!-- Left: Text content -->
+      <div class="hero__content">
+        <p class="hero__label" aria-hidden="true">
+          Data Analyst · Semarang, Indonesia
+        </p>
+
+        <h1 class="hero__name" id="hero-name">Fikri <em>Majid</em></h1>
+
+        <p class="hero__bio">
+          I turn raw data into clear, actionable insights. Specializing in
+          <strong>data modeling</strong>, <strong>SQL</strong>,
+          <strong>Power BI</strong> dashboards, and end-to-end
+          <strong>business intelligence</strong> reporting.
+        </p>
+
+        <!-- Social Links -->
+        <nav aria-label="Social profiles" class="hero__social">
+          <a
+            href="{{ site.social.github }}"
+            class="hero__social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub profile (opens in new tab)"
+          >
+            <!-- GitHub SVG -->
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.338c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"
+              />
+            </svg>
+            GitHub
+          </a>
+
+          <a
+            href="{{ site.social.linkedin }}"
+            class="hero__social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn profile (opens in new tab)"
+          >
+            <!-- LinkedIn SVG -->
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              />
+            </svg>
+            LinkedIn
+          </a>
+        </nav>
+
+        <!-- CTA Navigation Cards -->
+        <div class="hero-nav" aria-label="Site sections">
+          <p class="hero-nav__label" aria-hidden="true">Explore</p>
+          <div class="hero-nav__grid" role="list">
+            <a
+              href="{{ '/projects/' | relative_url }}"
+              class="nav-card"
+              role="listitem"
+              aria-label="View my Projects"
+            >
+              <div>
+                <h2 class="nav-card__title">Projects</h2>
+                <p class="nav-card__desc">
+                  Case studies, dashboards &amp; SQL analyses.
+                </p>
+              </div>
+              <span class="nav-card__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              href="{{ '/cv/' | relative_url }}"
+              class="nav-card"
+              role="listitem"
+              aria-label="View my CV / Résumé"
+            >
+              <div>
+                <h2 class="nav-card__title">CV</h2>
+                <p class="nav-card__desc">
+                  Work experience, skills &amp; résumé download.
+                </p>
+              </div>
+              <span class="nav-card__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              href="{{ '/certification/' | relative_url }}"
+              class="nav-card"
+              role="listitem"
+              aria-label="View my Certifications"
+            >
+              <div>
+                <h2 class="nav-card__title">Certification</h2>
+                <p class="nav-card__desc">
+                  Professional credentials &amp; completed courses.
+                </p>
+              </div>
+              <span class="nav-card__arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- /.hero__content -->
+
+      <!-- Right: Avatar -->
+      <div>
+        <img
+          src="{{ '/assets/images/avatar.jpg' | relative_url }}"
+          alt="Portrait of Fikri Majid"
+          class="hero__avatar"
+          width="180"
+          height="180"
+          loading="eager"
+        />
+      </div>
     </div>
-    <div class="item">
-        <a href="{{ '/projects/top-4-indonesian-bank' | relative_url }}">
-            <img src="{{ '/images/DataViz-Top4Bank.png' | relative_url }}" alt="Top4BankAnalysis">
-            <h2>Top 4 Indonesian Bank Analysis & Dashboard</h2>
-            <p>June 07, 2024</p>  
-        </a>
+    <!-- /.hero__inner -->
+  </div>
+</section>
+
+<!-- ============================================================
+  ABOUT SECTION
+============================================================ -->
+<section class="about section fade-in" aria-labelledby="about-heading">
+  <div class="container">
+    <p class="section__label" aria-hidden="true">Background</p>
+    <h2 class="section__title" id="about-heading">About Me</h2>
+
+    <div class="about__grid">
+      <!-- Bio text -->
+      <div class="about__text">
+        <p>
+          I am a Data Analyst CRM Intern at
+          <strong>Human Initiative</strong> with a background in research at
+          <strong>BRIN</strong> as research assistant. Currently, I specialize
+          in transforming complex datasets into strategic insights, focusing on
+          CRM data analysis to support business decisions.
+        </p>
+
+        <p>
+          My expertise lies in end-to-end data workflows: performing basic ETL
+          with <strong>SQL (BigQuery)</strong>, handling large datasets in
+          <strong>Excel</strong>, and building interactive, advanced data models
+          using <strong>Power BI</strong> and <strong>DAX</strong>. Outside of
+          work, I spend my time reading books and completing video game
+          achievements.
+        </p>
+      </div>
+
+      <!-- Skills + Stats -->
+      <div class="about__skills">
+        <h3>Core Tools &amp; Skills</h3>
+        <ul class="skill-tags" aria-label="Skills list">
+          <li>SQL (BigQuery)</li>
+          <li>Power BI</li>
+          <li>DAX</li>
+          <li>Power Query</li>
+          <li>Data Modeling</li>
+          <li>CRM Analysis</li>
+          <li>Excel & Google Sheets</li>
+          <li>Reporting</li>
+          <li>Python</li>
+          <li>Research & Analysis</li>
+        </ul>
+
+        <!-- <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-card__number" aria-label="3 years of experience">
+              4+ (Internship)
+            </div>
+            <div class="stat-card__label">Months of experience</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__number" aria-label="15 projects completed">
+              4
+            </div>
+            <div class="stat-card__label">Projects completed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__number" aria-label="8 certifications earned">
+              8
+            </div>
+            <div class="stat-card__label">Certifications</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__number" aria-label="5 industries served">
+              5
+            </div>
+            <div class="stat-card__label">Industries served</div>
+          </div>
+        </div> -->
+      </div>
     </div>
-    <div class="item">
-        <a href="{{ '/projects/alzheimer-disease' | relative_url'}}">
-            <img src="{{ '/images/alzheimer-correlation.png' | relative_url }}" alt="AlzheimerDisease">
-            <h2>Alzheimer Disease Analysis</h2>
-            <p>July 02, 2024</p>  
-        </a>
-    </div>
-</div>
+    <!-- /.about__grid -->
+  </div>
+</section>

@@ -1,0 +1,155 @@
+<!-- _includes/image-modal.html -->
+<!-- Self-contained image popup modal -->
+<!-- Included directly in default.html so it sits at body level -->
+
+<div id="proj-modal" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button id="proj-modal-close" aria-label="Close">&times;</button>
+  <img id="proj-modal-img" src="" alt="">
+  <p id="proj-modal-caption"></p>
+</div>
+
+<style>
+#proj-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 99999;
+  background: rgba(15,13,11,0.93);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  cursor: zoom-out;
+}
+#proj-modal.is-open {
+  display: flex;
+}
+#proj-modal-img {
+  display: block;
+  max-width: 92vw;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.7);
+  cursor: default;
+  animation: projScaleIn .25s cubic-bezier(.34,1.56,.64,1);
+}
+#proj-modal-caption {
+  color: rgba(255,255,255,0.65);
+  font-size: .82rem;
+  font-style: italic;
+  text-align: center;
+  max-width: 700px;
+  line-height: 1.6;
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+}
+#proj-modal-close {
+  position: fixed;
+  top: 1rem;
+  right: 1.25rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.10);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s, transform .15s;
+  z-index: 100000;
+}
+#proj-modal-close:hover {
+  background: rgba(255,255,255,0.25);
+  transform: scale(1.1);
+}
+@keyframes projScaleIn {
+  from { opacity:0; transform: scale(.88) translateY(16px); }
+  to   { opacity:1; transform: scale(1)   translateY(0);   }
+}
+
+/* Clickable image styling on project pages */
+#project-content img {
+  cursor: zoom-in !important;
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #DDD9D3;
+  box-shadow: 0 1px 4px rgba(26,23,20,.08);
+  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+}
+#project-content img:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(26,23,20,.14);
+  opacity: .9;
+}
+</style>
+
+<script>
+(function() {
+  var modal  = document.getElementById('proj-modal');
+  var mImg   = document.getElementById('proj-modal-img');
+  var mCap   = document.getElementById('proj-modal-caption');
+  var mClose = document.getElementById('proj-modal-close');
+
+  if (!modal) return;
+
+  function openModal(src, alt) {
+    mImg.src = src;
+    mImg.alt = alt || '';
+    mCap.textContent = alt || '';
+    mCap.style.display = alt ? 'block' : 'none';
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    mClose.focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+    mImg.src = '';
+  }
+
+  // Attach to images inside project content — runs after DOM ready
+  function attachToImages() {
+    var content = document.getElementById('project-content');
+    if (!content) return;
+    content.querySelectorAll('img').forEach(function(img) {
+      // Avoid attaching twice
+      if (img.dataset.modalBound) return;
+      img.dataset.modalBound = '1';
+      img.addEventListener('click', function() {
+        openModal(img.src, img.alt);
+      });
+    });
+  }
+
+  // Run on DOMContentLoaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', attachToImages);
+  } else {
+    attachToImages();
+  }
+
+  // Close triggers
+  mClose.addEventListener('click', function(e) {
+    e.stopPropagation();
+    closeModal();
+  });
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+})();
+</script>

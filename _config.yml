@@ -1,5 +1,55 @@
-title: Fikri Majid's Portfolio
-description: 
-baseurl: "/portfolio"
+title: "Fikri Majid | Data Analyst"
+description: "Data Analyst specializing in Power BI, SQL, and business intelligence reporting."
+author: "Fikri Majid"
+email: "majidfikri10@gmail.com"
+
 url: "https://sunny-smiles.github.io"
-theme: minima
+baseurl: "/portfolio"
+
+social:
+  github: "https://github.com/sunny-smiles"
+  linkedin: "https://linkedin.com/in/fikrimajid"
+
+nav_links:
+  - title: "Projects"
+    url: "/projects/"
+  - title: "CV"
+    url: "/cv/"
+  - title: "Certification"
+    url: "/certification/"
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:slug/
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+sass:
+  sass_dir: _sass
+  load_paths:
+    - _sass
+  style: compressed
+theme:
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules/
+  - vendor/

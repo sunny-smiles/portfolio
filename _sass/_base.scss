@@ -1,0 +1,216 @@
+// _sass/_base.scss
+// ============================================================
+//  Reset + Global Base Styles
+// ============================================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-body;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: $color-ink;
+  background-color: $color-bg;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// --- Typography Scale ---
+h1,
+h2,
+h3,
+h4 {
+  font-family: $font-display;
+  font-weight: 400;
+  line-height: 1.2;
+  color: $color-ink;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+}
+h2 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+}
+h3 {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+}
+h4 {
+  font-size: 1.1rem;
+}
+
+p {
+  color: $color-ink-muted;
+  max-width: 68ch;
+}
+
+a {
+  color: $color-accent;
+  text-decoration: none;
+  transition:
+    color $transition-fast,
+    opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.75;
+  }
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 3px;
+    border-radius: $radius-sm;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul,
+ol {
+  padding-left: $space-lg;
+  color: $color-ink-muted;
+}
+
+// --- Utility Classes ---
+.container {
+  width: 100%;
+  max-width: $container-max;
+  margin-inline: auto;
+  padding-inline: $space-xl;
+
+  @media (max-width: 640px) {
+    padding-inline: $space-md;
+  }
+}
+
+.container--narrow {
+  max-width: $container-narrow;
+}
+
+.section {
+  padding-block: $space-3xl;
+
+  @media (max-width: 768px) {
+    padding-block: $space-2xl;
+  }
+}
+
+.section__label {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $color-accent;
+  margin-bottom: $space-md;
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: $color-accent;
+  }
+}
+
+.section__title {
+  margin-bottom: $space-xl;
+}
+
+// --- Visually Hidden (accessibility) ---
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// --- Skip Link (a11y) ---
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: $space-md;
+  background: $color-accent;
+  color: white;
+  padding: $space-sm $space-md;
+  border-radius: $radius-sm;
+  font-weight: 600;
+  z-index: 9999;
+  transition: top $transition-fast;
+
+  &:focus {
+    top: $space-md;
+  }
+}
+
+// --- Tables ---
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: $space-xl;
+  font-size: 0.875rem;
+
+  th {
+    text-align: left;
+    font-family: $font-mono;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $color-ink-muted;
+    padding: $space-sm $space-md;
+    border-bottom: 2px solid $color-border;
+    background: $color-surface-2;
+  }
+
+  td {
+    padding: $space-sm $space-md;
+    border-bottom: 1px solid $color-border;
+    color: $color-ink-muted;
+    vertical-align: top;
+
+    code {
+      font-family: $font-mono;
+      font-size: 0.8em;
+      background: $color-surface-2;
+      padding: 0.1em 0.35em;
+      border-radius: $radius-sm;
+      color: $color-accent;
+    }
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:hover td {
+    background: $color-surface-2;
+  }
+
+  // Responsive: scroll horizontally on small screens
+  @media (max-width: 640px) {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

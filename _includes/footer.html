@@ -1,0 +1,40 @@
+<!-- _includes/footer.html -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__copy">
+        &copy; {{ 'now' | date: "%Y" }} {{ site.author }}. Built with Jekyll
+        &amp; GitHub Pages.
+      </p>
+      <ul class="site-footer__links" role="list">
+        <li>
+          <a
+            href="{{ site.social.github }}"
+            class="site-footer__link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub (opens in new tab)"
+          >
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a
+            href="{{ site.social.linkedin }}"
+            class="site-footer__link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn (opens in new tab)"
+          >
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="mailto:{{ site.email }}" class="site-footer__link">
+            Email
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
