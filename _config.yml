@@ -13,8 +13,6 @@ social:
 nav_links:
   - title: "Projects"
     url: "/projects/"
-  - title: "CV"
-    url: "/cv/"
   - title: "Certification"
     url: "/certification/"
 

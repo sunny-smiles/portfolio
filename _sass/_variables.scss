@@ -9,13 +9,14 @@ $font-body: "Cabin", "Helvetica Neue", sans-serif;
 $font-mono: "Courier New", Courier, monospace;
 
 // --- Color Palette: Tol Muted (colorblind-safe) ---
-$color-bg: #f5f0e8; // warm cream
+// Accent updated to Tol Muted Indigo for stronger contrast on cream background
+$color-bg: #fdfaf5; // warm cream
 $color-surface: #ffffff;
 $color-surface-2: #ede8df;
 $color-ink: #212121; // dark brown-black
 $color-ink-muted: #7a6952; // muted brown
-$color-accent: #44aa99; // teal
-$color-accent-2: #aa4499; // purple (Tol muted secondary)
+$color-accent: #332288; // Tol Muted Indigo — high contrast on cream
+$color-accent-2: #44aa99; // teal (secondary, used in cert cards etc.)
 $color-border: #ddd8ce; // warm sand
 
 // --- Spacing Scale ---
@@ -43,4 +44,4 @@ $transition-slow: 400ms ease;
 $shadow-sm: 0 1px 3px rgba(33, 33, 33, 0.08);
 $shadow-md: 0 4px 16px rgba(33, 33, 33, 0.1);
 $shadow-lg: 0 12px 40px rgba(33, 33, 33, 0.14);
-$shadow-accent: 0 8px 32px rgba(68, 170, 153, 0.22);
+$shadow-accent: 0 8px 32px rgba(51, 34, 136, 0.22);
